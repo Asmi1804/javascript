@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Ticket Booking</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Movie Tickets</a>
+    </div>
+  </nav>
+
+  <!-- Theater Selection Section -->
+  <div class="container mt-5">
+    <h3>Select a Theater</h3>
+    <form class="d-flex">
+      <select id="theater-select" class="form-select me-2" aria-label="Select Theater">
+        <option selected>Select a Theater</option>
+        <option value="PVR">PVR</option>
+        <option value="INOX">INOX</option>
+        <option value="SB Cinemas">SB Cinemas</option>
+      </select>
+      <button class="btn btn-outline-success" type="button" onclick="goToMovies()">Go</button>
+    </form>
+  </div>
+
+  <script>
+    function goToMovies() {
+      const theater = document.getElementById("theater-select").value;
+      if (theater !== 'Select a Theater') {
+        // Navigate to movies.html with the selected theater as a query parameter
+        window.location.href = `movies.html?theater=${theater}`;
+      } else {
+        alert("Please select a theater.");
+      }
+    }
+  </script>
+</body>
+</html>
